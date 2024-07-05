@@ -1,0 +1,4 @@
+# az ml workspace create -f infra/workspace.yml --system-datastores-auth-mode identity"
+# reference https://learn.microsoft.com/en-us/cli/azure/ml/workspace?view=azure-cli-latest#az-ml-workspace-create
+$schema: https://azuremlschemas.azureedge.net/latest/workspace.schema.json
+name: mlw-mlops

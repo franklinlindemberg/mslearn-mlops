@@ -1,0 +1,7 @@
+# az ml compute create -f infra/compute.yml --workspace mlw-mlops
+$schema: https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json
+name: mlw-mlops-vm
+type: computeinstance
+size: STANDARD_DS11_V2
+identity:
+  type: system_assigned
