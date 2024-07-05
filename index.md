@@ -17,3 +17,19 @@ To complete these exercises, you’ll need a Microsoft Azure subscription. If yo
 | --- | --- | 
 {% for activity in challenge  %}| {{ activity.challenge.module }} | [{{ activity.challenge.challenge }}{% if activity.challenge.type %} - {{ activity.challenge.type }}{% endif %}]({{ site.github.url }}{{ activity.url }}) |
 {% endfor %}
+
+## Running the solution
+
+### Create workspace
+$az ml workspace create -f infra/workspace.yml --system-datastores-auth-mode identity"
+
+### Create compute
+$az ml compute create -f infra/compute.yml --workspace mlw-mlops
+
+### Create data folder
+$az ml data create --file infra/dataset.yml  --workspace mlw-mlops
+
+### Permissions
+- Add blob reader/contributor permission to the compute instance
+- Add blob reader/contributor permission to the user
+- Add blob reader/contributor permission to the workspace
