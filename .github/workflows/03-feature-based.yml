@@ -1,0 +1,14 @@
+name: PR
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    steps:
+    - name: echo
+      run: |
+        echo "Will add code checks here in next challenge"
