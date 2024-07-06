@@ -1,4 +1,4 @@
-# az ml data create --file infra/dataset.yml  --workspace mlw-mlops
+# az ml data create --file infra/dataset-experimentation.yml  --workspace mlw-mlops
 $schema: https://azuremlschemas.azureedge.net/latest/asset.schema.json
 name: diabetes-dev-folder
 version: 1
