@@ -25,5 +25,6 @@ jobs:
     - name: Run linting on tests
       run: | 
         flake8 tests/
-
-
+    - name: Run tests
+      run: | 
+        pytest tests/
