@@ -1,0 +1,23 @@
+name: Run experiments
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  experimentation:
+    uses: ./.github/workflows/train-job.yml
+    with:
+      dataset: experimentation
+      environment: development
+    secrets:
+      AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
+  production:
+    uses: ./.github/workflows/train-job.yml
+    needs: experimentation
+    with:
+      dataset: production
+      environment: production
+    secrets:
+      AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
