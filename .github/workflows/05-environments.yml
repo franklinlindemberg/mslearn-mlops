@@ -19,7 +19,7 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: run job
-      run: az ml job create -f infra/job.yml --resource-group "rg-internal" --workspace "mlw-mlops" --stream
+      run: az ml job create -f infra/job-experimentation.yml --resource-group "rg-internal" --workspace "mlw-mlops" --stream
   production:
     runs-on: ubuntu-latest
     environment: production
@@ -34,4 +34,4 @@ jobs:
         with:
           creds: ${{secrets.AZURE_CREDENTIALS}}
       - name: run job
-        run: az ml job create -f infra/job.yml --resource-group "rg-internal" --workspace "mlw-mlops" --stream
+        run: az ml job create -f infra/job-production.yml --resource-group "rg-internal" --workspace "mlw-mlops" --stream
