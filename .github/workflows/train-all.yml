@@ -9,14 +9,14 @@ jobs:
   experimentation:
     uses: ./.github/workflows/train-job.yml
     with:
-      dataset: diabetes-dev-folder
+      dataset: dev
       environment: development
     secrets:
       AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
   production:
     uses: ./.github/workflows/train-job.yml
     with:
-      dataset: diabetes-prod-folder
+      dataset: prod
       environment: production
     secrets:
       AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
