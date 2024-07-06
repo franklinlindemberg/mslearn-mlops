@@ -15,6 +15,7 @@ jobs:
       AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
   production:
     uses: ./.github/workflows/train-job.yml
+    needs: experimentation
     with:
       dataset: production
       environment: production
