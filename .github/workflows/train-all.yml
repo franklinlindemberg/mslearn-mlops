@@ -9,7 +9,7 @@ jobs:
   experimentation:
     uses: ./.github/workflows/train-job.yml
     with:
-      dataset: dev
+      dataset: experimentation
       environment: development
     secrets:
       AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
