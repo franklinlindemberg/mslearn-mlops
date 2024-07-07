@@ -1,4 +1,4 @@
-# az ml job create -f infra/job.yml --workspace "mlw-mlops"
+# az ml job create -f infra/job-experimentation.yml --workspace "mlw-mlops"
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: ../src/model
 command: >-
