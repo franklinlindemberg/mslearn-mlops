@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{inputs.environment}}
     outputs:
-      uri_folder: ${{ steps.run.outputs.default.path }}
+      uri_folder: ${{ steps.run.outputs.test }}
     steps:
     - name: Check out repo
       uses: actions/checkout@main
@@ -29,7 +29,7 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Run job
       id: run
-      run: echo $(az ml job create -f infra/job-${{inputs.dataset}}.yml --resource-group "rg-internal" --workspace "mlw-mlops" --stream) >> "$GITHUB_OUTPUT"
+      run: echo "test=$(az ml job create -f infra/job-${{inputs.dataset}}.yml --resource-group "rg-internal" --workspace "mlw-mlops" --stream)" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
     needs: train
