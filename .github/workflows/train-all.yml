@@ -21,10 +21,10 @@ jobs:
       environment: production
     secrets:
       AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
-  register-model:
-    runs-on: ubuntu-latest
-    environment: production
-    needs: experimentation
-    steps:
-      - name: echo
-        uses: ${{needs.production.outputs.step}}
+#  register-model:
+#    runs-on: ubuntu-latest
+#    environment: production
+#    needs: experimentation
+#    steps:
+#      - name: echo
+#        uses: ${{needs.production.outputs.step}}
