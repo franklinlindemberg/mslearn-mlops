@@ -21,3 +21,18 @@ jobs:
       environment: production
     secrets:
       AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
+  register-model:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: echo
+        uses: ${{outputs
+      - name: Install az ml extension
+        run: az extension add -n ml -y
+      - name: Azure login
+        uses: azure/login@v1
+        with:
+          creds: ${{secrets.AZURE_CREDENTIALS}}
+      - name: Run job
+        run: az ml job create -f infra/job-${{inputs.dataset}}.yml --resource-group "rg-internal" --workspace "mlw-mlops" --stream
+
