@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{inputs.environment}}
     outputs:
-      uri_folder: ${{ steps.run.outputs.outputs.default.path }}
+      uri_folder: ${{ steps.run.outputs.default.path }}
     steps:
     - name: Check out repo
       uses: actions/checkout@main
