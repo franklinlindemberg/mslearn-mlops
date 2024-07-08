@@ -31,6 +31,7 @@ jobs:
       id: run
       run: |
         out=$(az ml job create -f infra/job-${{inputs.dataset}}.yml --resource-group "rg-internal" --workspace "mlw-mlops" --query name -o tsv)
+        echo $out
         echo "run_id=$out" >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
