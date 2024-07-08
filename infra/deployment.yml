@@ -1,0 +1,7 @@
+# az ml online-deployment update --file infra/deployment.yml --workspace mlw-mlops
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+name: diabetes-deployment
+endpoint_name: diabetes-endpoint
+model: azureml:diabetes-model@latest
+instance_type: Standard_DS3_v2
+environment: azureml:AzureML-sklearn-1.1-ubuntu20.04-py38-cpu@latest
