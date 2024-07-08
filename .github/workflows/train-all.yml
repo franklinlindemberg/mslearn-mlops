@@ -14,10 +14,13 @@ jobs:
     secrets:
       AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
   register-model:
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/register-job.yml
     needs: experimentation
-    steps:
-      - run: az ml model create --name model --path runs:/${{needs.experimentation.outputs.run_id}}/model/ --type mlflow_model --resource-group "rg-internal" --workspace "mlw-mlops"
+    with:
+      run_id: ${{needs.experimentation.outputs.run_id}}
+      environment: development
+    secrets:
+      AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
   production:
     uses: ./.github/workflows/train-job.yml
     needs: experimentation

@@ -1,0 +1,27 @@
+name: Run experiment
+
+on:
+  workflow_call:
+    inputs:
+      run_id:
+        required: true
+        type: string
+      environment:
+        required: true
+        type: string
+    secrets:
+      AZURE_CREDENTIALS:
+        required: true
+jobs:
+  register:
+    runs-on: ubuntu-latest
+    environment: ${{inputs.environment}}
+    steps:
+    - name: Install az ml extension
+      run: az extension add -n ml -y
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Register model
+      run: az ml model create --name model --path runs:/${{inputs.run_id}}/model/ --type mlflow_model --resource-group "rg-internal" --workspace "mlw-mlops"
