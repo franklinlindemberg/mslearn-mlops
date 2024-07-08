@@ -30,4 +30,4 @@ jobs:
     - name: Create endpoint
       run: az ml online-endpoint update --file infra/endpoint.yml --resource-group "rg-internal" --workspace "mlw-mlops"
     - name: Deploy model
-      run: az ml online-deployment create --file infra/deployment.yml --resource-group "rg-internal" --workspace "mlw-mlops"
+      run: az ml online-deployment update --file infra/deployment.yml --resource-group "rg-internal" --workspace "mlw-mlops"
