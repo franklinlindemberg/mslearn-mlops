@@ -37,5 +37,5 @@ jobs:
     needs: train
     steps:
       - env:
-          OUTPUT1: ${{needs.train.outputs.uri_folder}}
+          OUTPUT1: ${{needs.train.outputs.run_id}}
         run: echo "da $OUTPUT1"
