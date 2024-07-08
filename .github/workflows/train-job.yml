@@ -33,5 +33,5 @@ jobs:
     - name: Run job
       id: run
       run: |
-        res=$(az ml job create -f infra/job-${{inputs.dataset}}.yml --resource-group "rg-internal" --workspace "mlw-mlops" --stream --query name -o tsv)
+        res=$(az ml job create -f infra/job-${{inputs.dataset}}.yml --resource-group "rg-internal" --workspace "mlw-mlops" --stream --query name -o tsv | tail -n 1)
         echo "run_id=$res" >> "$GITHUB_OUTPUT"
