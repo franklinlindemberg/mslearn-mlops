@@ -30,10 +30,6 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
-    - name: Echo
-      run: ls -la
-    - name: Echo 2
-      run: pwd
     - name: Run job
       id: run
       run: |

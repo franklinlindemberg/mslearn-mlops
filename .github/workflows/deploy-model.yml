@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{inputs.environment}}
     steps:
+    - name: Check out repo
+      uses: actions/checkout@main
     - name: Install az ml extension
       run: az extension add -n ml -y
     - name: Azure login
