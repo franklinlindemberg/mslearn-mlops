@@ -11,7 +11,7 @@ on:
         type: string
     outputs:
       run_id:
-        value: ${{jobs.train.outputs.run_idg}}
+        value: ${{jobs.train.outputs.run_id}}
     secrets:
       AZURE_CREDENTIALS:
         required: true
