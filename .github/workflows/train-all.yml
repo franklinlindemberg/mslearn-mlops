@@ -6,6 +6,14 @@ on:
       - main
 
 jobs:
+  create-endpoint:
+    uses: ./.github/workflows/register-job.yml
+    needs: experimentation
+    with:
+      run_id: ${{needs.experimentation.outputs.run_id}}
+      environment: development
+    secrets:
+      AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
   experimentation:
     uses: ./.github/workflows/train-job.yml
     with:
@@ -13,8 +21,8 @@ jobs:
       environment: development
     secrets:
       AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
-  register-model:
-    uses: ./.github/workflows/register-job.yml
+  deploy-model:
+    uses: ./.github/workflows/deploy-model.yml
     needs: experimentation
     with:
       run_id: ${{needs.experimentation.outputs.run_id}}
