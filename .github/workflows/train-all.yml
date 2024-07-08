@@ -13,6 +13,11 @@ jobs:
       environment: development
     secrets:
       AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
+  echo:
+    runs-on: ubuntu-latest
+    needs: experimentation
+    steps:
+      - run: echo "da ${{needs.experimentation.outputs.run_id}}"
   production:
     uses: ./.github/workflows/train-job.yml
     needs: experimentation
