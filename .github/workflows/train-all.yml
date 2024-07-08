@@ -6,14 +6,6 @@ on:
       - main
 
 jobs:
-  create-endpoint:
-    uses: ./.github/workflows/register-job.yml
-    needs: experimentation
-    with:
-      run_id: ${{needs.experimentation.outputs.run_id}}
-      environment: development
-    secrets:
-      AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
   experimentation:
     uses: ./.github/workflows/train-job.yml
     with:
@@ -37,10 +29,3 @@ jobs:
       environment: production
     secrets:
       AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
-#  register-model:
-#    runs-on: ubuntu-latest
-#    environment: production
-#    needs: experimentation
-#    steps:
-#      - name: echo
-#        uses: ${{needs.production.outputs.step}}
