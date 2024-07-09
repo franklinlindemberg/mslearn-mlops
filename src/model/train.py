@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 
 # define functions
 def main(args):
-    mlflow.autolog()
+    mlflow.autolog(log_input_examples=True)
 
     # read data
     df = get_csvs_df(args.training_data)

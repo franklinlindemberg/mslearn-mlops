@@ -21,3 +21,11 @@ jobs:
       environment: production
     secrets:
       AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
+  deploy-model:
+    uses: ./.github/workflows/deploy-model.yml
+    needs: production
+    with:
+      run_id: ${{needs.production.outputs.run_id}}
+      environment: production
+    secrets:
+      AZURE_CREDENTIALS: ${{secrets.AZURE_CREDENTIALS}}
