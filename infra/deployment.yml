@@ -4,7 +4,4 @@ name: diabetes-deployment
 endpoint_name: diabetes-endpoint
 model: azureml:diabetes-model@latest
 instance_type: Standard_DS3_v2
-environment:
-  name: diabetes-environment
-  image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04:latest
-  conda_file: conda.yaml
+#environment: azureml:mlflow-ubuntu20.04-py38-cpu-inference@latest

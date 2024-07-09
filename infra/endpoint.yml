@@ -2,6 +2,5 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
 name: diabetes-endpoint
 auth_mode: aad_token
-public_network_access: disabled
 identity:
   type: system_assigned
